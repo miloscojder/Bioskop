@@ -1,10 +1,15 @@
 package com.example.Bioskop.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -27,6 +32,20 @@ public class Korisnik {
     @Enumerated(EnumType.STRING)
     private UlogaKorisnika uloga;
     private boolean aktivan;
+
+
+    @OneToMany(mappedBy = "menadzer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Bioskop> bioskop = new HashSet<Bioskop>();
+
+    @OneToMany(mappedBy = "korisnik", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Korisnik_film> korisnici = new HashSet<Korisnik_film>();
+
+    @OneToMany(mappedBy = "korisnikk", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Rezervacije> rezervacije = new HashSet<Rezervacije>();
+
 
 
 

@@ -1,11 +1,11 @@
 package com.example.Bioskop.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,5 +24,12 @@ public class Film {
     private int trajanje;
     private double ocena;
 
+    @OneToMany(mappedBy = "film",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Korisnik_film> filmovi = new HashSet<Korisnik_film>();
+
+    @OneToMany(mappedBy = "filmm",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Korisnik_film> filmovi2 = new HashSet<Korisnik_film>();
 
 }
