@@ -4,33 +4,32 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Builder
 @Getter
 @Setter
-@Builder
-public class Rezervacije {
+@Entity
+public class Projekcija {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date datumrezervacije;
+    private Date vremeprojekcije;
+    private Double cena;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "korisnik_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL )
+    @JoinColumn(name = "sala_id")
     @JsonBackReference
-    private Korisnik korisnikk;
+    private Sala salaa;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL )
     @JoinColumn(name = "film_id")
     @JsonBackReference
-    private Film filmm;
-
-
-
-
+    private Film filmmm;
 
 
 }

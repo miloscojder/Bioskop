@@ -30,6 +30,11 @@ public class Film {
 
     @OneToMany(mappedBy = "filmm",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonManagedReference
-    private Set<Korisnik_film> filmovi2 = new HashSet<Korisnik_film>();
+    private Set<Rezervacije> filmovi2 = new HashSet<Rezervacije>();
+
+    @OneToMany(mappedBy = "filmmm", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Projekcija>  filmovi3 = new HashSet<Projekcija>();
+
 
 }

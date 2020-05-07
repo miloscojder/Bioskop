@@ -21,7 +21,7 @@ public class Bioskop {
     private Long id;
     private String naziv;
     private String adresa;
-    private String brCentrale;
+    private String brcentrale;
     private String email;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

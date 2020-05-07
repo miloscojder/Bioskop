@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Builder
-@Table(name = "bioskop_sale")
 public class Bioskop_sala {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
