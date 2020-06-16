@@ -13,11 +13,12 @@ $(document).on('click','#loguj',function () {
         data: JSON.stringify({"username":  $('#username').val(), "password": $('#password').val()}),
         success: function(response){
             alert('Uspesno logovanje!!!');
-            window.location="profil.html";
+            if(response.uloga === 'ADMIN')  window.location="admin.html";
+            else window.location="profil.html";
         },
         error: function (response) {
             alert('Neuspesno logovanje!');
-            console.log(response)
+            console.log(response);
         }
 
     });
@@ -41,5 +42,23 @@ $(document).on('click','#reg',function () {
                 console.log(response)
             }
         });
+});
+$(document).on('click','#add',function () {
+
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/bioskop/kreiraj",
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify({"naziv": $('#naziv').val(), "brcentrale": $('#brcentrale').val(), "adresa": $('#adresa').val(), "email": $('#mail').val()}),
+        success: function (response) {
+            alert('Uspesno dodat novi bioskop!');
+            window.location="profil.html";
+        },
+        error: function (response) {
+            alert('Neuspesno dodavanje!');
+            console.log(response);
+        }
+    });
 });
 
