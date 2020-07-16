@@ -5,6 +5,9 @@ import com.example.Bioskop.repository.BioskopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.util.List;
+@Transactional
 @Service
 public class BioskopService {
     @Autowired
@@ -13,4 +16,6 @@ public class BioskopService {
     public void kreirajBioskop(Bioskop b){
         this.bioskopRepository.save(b);
     }
+    public List<Bioskop> findAll(){ return this.bioskopRepository.findAll();}
+    public void brisiBioskop(Long id){this.bioskopRepository.deleteBioskop(id);}
 }

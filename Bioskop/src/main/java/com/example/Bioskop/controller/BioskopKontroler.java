@@ -25,5 +25,16 @@ public class BioskopKontroler {
         return new ResponseEntity<>(b, HttpStatus.OK);
 
     }
+    @CrossOrigin(origins = "http://localhost:63342")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/bioskopi")
+    public ResponseEntity<?> ispisiBioskope(){
+        return new ResponseEntity<>(this.bioskopService.findAll(), HttpStatus.OK);
+    }
+    @CrossOrigin(origins = "http://localhost:63342")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/brisiBioskop/{id}")
+    public ResponseEntity<?> brisiBioskop(@PathVariable("id") String id){
+        this.bioskopService.brisiBioskop(Long.parseLong(id));
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }

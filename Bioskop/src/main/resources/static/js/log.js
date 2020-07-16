@@ -14,7 +14,7 @@ $(document).on('click','#loguj',function () {
         success: function(response){
             alert('Uspesno logovanje!!!');
             if(response.uloga === 'ADMIN')  window.location="admin.html";
-            else window.location="profil.html";
+            else window.location="pocetna.html";
         },
         error: function (response) {
             alert('Neuspesno logovanje!');
