@@ -53,7 +53,7 @@ $(document).on('click','#add',function () {
         data: JSON.stringify({"naziv": $('#naziv').val(), "brcentrale": $('#brcentrale').val(), "adresa": $('#adresa').val(), "email": $('#mail').val()}),
         success: function (response) {
             alert('Uspesno dodat novi bioskop!');
-            window.location="profil.html";
+            window.location="admin.html";
         },
         error: function (response) {
             alert('Neuspesno dodavanje!');

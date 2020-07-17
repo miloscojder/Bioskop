@@ -38,5 +38,11 @@ public class KorisnickiKontroler {
         this.korisnikService.createKorisnik(k);
         return new ResponseEntity<>(k, HttpStatus.OK);
     }
+    @CrossOrigin(origins = "http://localhost:63342")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/menadzeri")
+    public ResponseEntity<?> ispisiMenadzere(){
+        String ulogaMen = "MENADZER";
+        return new ResponseEntity<>(this.korisnikService.findAllByUloga(ulogaMen), HttpStatus.OK);
+    }
 
 }
