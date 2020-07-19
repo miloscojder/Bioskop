@@ -41,8 +41,14 @@ public class KorisnickiKontroler {
     @CrossOrigin(origins = "http://localhost:63342")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/menadzeri")
     public ResponseEntity<?> ispisiMenadzere(){
-        String ulogaMen = "MENADZER";
-        return new ResponseEntity<>(this.korisnikService.findAllByUloga(ulogaMen), HttpStatus.OK);
+        return new ResponseEntity<>(this.korisnikService.findAllByUloga(UlogaKorisnika.MENADZER), HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:63342")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/brisiMenadzera/{id}")
+    public ResponseEntity<?> brisiMenadzeree(@PathVariable("id") String id){
+        this.korisnikService.removeKorisnik(Long.parseLong(id));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

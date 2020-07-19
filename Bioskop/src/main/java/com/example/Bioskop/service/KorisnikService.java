@@ -1,6 +1,7 @@
 package com.example.Bioskop.service;
 
 import com.example.Bioskop.model.Korisnik;
+import com.example.Bioskop.model.UlogaKorisnika;
 import com.example.Bioskop.repository.KorisnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,7 @@ public class KorisnikService {
     public void createKorisnik(Korisnik k){
         this.korisnikRepository.save(k);
     }
-    public List<Korisnik> findAllByUloga(String uloga){
-       // String uloga = "MENADZER";
-        return this.korisnikRepository.findAllByUloga(uloga);
-    }
+    public List<Korisnik> findAllByUloga(UlogaKorisnika uloga){ return this.korisnikRepository.findAllByUloga(uloga); }
+    public void removeKorisnik(Long id){ this.korisnikRepository.deleteKorisnik(id);}
 
 }

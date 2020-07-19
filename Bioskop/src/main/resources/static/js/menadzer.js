@@ -4,7 +4,6 @@ $(document).ready(function () {
         url: "http://localhost:8080/korisnik/menadzeri",
         dataType: "json",
         success: function (response) {
-            alert('USOO!!!!!!!!!')
             console.log(response);
             for(i = 0; i < response.length; i++){
                 var red = "<tr>";
@@ -29,7 +28,7 @@ $(document).ready(function () {
 $(document).on('click', '.brisanje', function () {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/bioskop/brisiMenadzera/" + this.id,
+        url: "http://localhost:8080/korisnik/brisiMenadzera/" + this.id,
         dataType: "json",
         success: function (response) {
             window.location.reload();

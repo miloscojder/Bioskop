@@ -12,9 +12,6 @@ import java.util.List;
 public interface BioskopRepository extends JpaRepository<Bioskop, Long> {
     List<Bioskop> findAll();
 
-    @Modifying
-    @Query("delete from Bioskop b where b.id=:id")
-    void deleteBios(@Param("id") Long id);
 
     @Modifying
     @Transactional
