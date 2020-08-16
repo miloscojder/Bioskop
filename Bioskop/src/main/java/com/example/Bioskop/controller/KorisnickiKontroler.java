@@ -50,5 +50,13 @@ public class KorisnickiKontroler {
         this.korisnikService.removeKorisnik(Long.parseLong(id));
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @CrossOrigin(origins = "http://localhost:63342")
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, path = "/regMenadzera")
+    public ResponseEntity<?> men(@RequestBody RegistracijaDTO men){
+        Korisnik m = Korisnik.builder().username(men.getUsername()).lozinka(men.getLozinka()).ime(men.getIme()).prezime(men.getPrezime())
+                .email(men.getEmail()).telefon(men.getTelefon()).datumrodjenja(new Date()).aktivan(true).uloga(UlogaKorisnika.MENADZER).build();
+        this.korisnikService.createKorisnik(m);
+        return new ResponseEntity<>(m, HttpStatus.OK);
+    }
 
 }

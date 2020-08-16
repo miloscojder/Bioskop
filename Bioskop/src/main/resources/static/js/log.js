@@ -43,22 +43,5 @@ $(document).on('click','#reg',function () {
             }
         });
 });
-$(document).on('click','#add',function () {
 
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/bioskop/kreiraj",
-        dataType: "json",
-        contentType: "application/json",
-        data: JSON.stringify({"naziv": $('#naziv').val(), "brcentrale": $('#brcentrale').val(), "adresa": $('#adresa').val(), "email": $('#mail').val()}),
-        success: function (response) {
-            alert('Uspesno dodat novi bioskop!');
-            window.location="admin.html";
-        },
-        error: function (response) {
-            alert('Neuspesno dodavanje!');
-            console.log(response);
-        }
-    });
-});
 

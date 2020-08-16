@@ -29,11 +29,13 @@ $(document).on('click', '.brisanje', function () {
     $.ajax({
         type: "GET",
         url: "http://localhost:8080/korisnik/brisiMenadzera/" + this.id,
-        dataType: "json",
+        contentType: "application/json",
         success: function (response) {
-            window.location.reload();
+            alert("OBRISANO");
+            window.location.reload(false);
         },
         error: function (response) {
+            alert("NIJE OBRISANO");
             console.log(response);
         }
     });

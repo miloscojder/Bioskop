@@ -12,4 +12,6 @@ public class BioskopDTO {
     private String adresa;
     private String brcentrale;
     private String email;
+    private String menId;
+    private String biosId;
 }

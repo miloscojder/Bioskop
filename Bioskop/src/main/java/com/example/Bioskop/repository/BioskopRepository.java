@@ -12,9 +12,11 @@ import java.util.List;
 public interface BioskopRepository extends JpaRepository<Bioskop, Long> {
     List<Bioskop> findAll();
 
+    Bioskop findBioskopById(Long id);
 
     @Modifying
     @Transactional
     @Query(nativeQuery = true, value = "delete from bioskop b where b.id=:id")
     void deleteBioskop(@Param("id") Long id);
+
 }

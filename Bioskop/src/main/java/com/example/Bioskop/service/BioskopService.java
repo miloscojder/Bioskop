@@ -18,4 +18,5 @@ public class BioskopService {
     }
     public List<Bioskop> findAll(){ return this.bioskopRepository.findAll();}
     public void brisiBioskop(Long id){this.bioskopRepository.deleteBioskop(id);}
+    public Bioskop findBioskopById(Long id){return this.bioskopRepository.findBioskopById(id);}
 }
