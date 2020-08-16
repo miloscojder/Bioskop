@@ -1,6 +1,7 @@
 package com.example.Bioskop.service;
 
 import com.example.Bioskop.model.Bioskop;
+import com.example.Bioskop.model.Korisnik;
 import com.example.Bioskop.repository.BioskopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,4 +20,5 @@ public class BioskopService {
     public List<Bioskop> findAll(){ return this.bioskopRepository.findAll();}
     public void brisiBioskop(Long id){this.bioskopRepository.deleteBioskop(id);}
     public Bioskop findBioskopById(Long id){return this.bioskopRepository.findBioskopById(id);}
+    public List<Bioskop> findAllByMenadzerid(Long id){return this.bioskopRepository.findAllByMenadzerId(id);}
 }

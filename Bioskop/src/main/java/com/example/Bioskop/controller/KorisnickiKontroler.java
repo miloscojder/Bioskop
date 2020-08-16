@@ -25,7 +25,11 @@ public class KorisnickiKontroler {
     public ResponseEntity<?> logovanje(@RequestBody KorisnikDTO podaci){
         Korisnik k = korisnikService.findOneByUsername(podaci.getUsername());
         if(k!=null){
-            if(k.getLozinka().equals(podaci.getPassword())) return new ResponseEntity<>(k,HttpStatus.OK);
+            if(k.getLozinka().equals(podaci.getPassword())) {
+                k.setUlogovan(true);
+                this.korisnikService.createKorisnik(k);
+                return new ResponseEntity<>(k,HttpStatus.OK);
+            }
         }
         return new ResponseEntity<>(k, HttpStatus.NOT_FOUND);
     }
@@ -57,6 +61,16 @@ public class KorisnickiKontroler {
                 .email(men.getEmail()).telefon(men.getTelefon()).datumrodjenja(new Date()).aktivan(true).uloga(UlogaKorisnika.MENADZER).build();
         this.korisnikService.createKorisnik(m);
         return new ResponseEntity<>(m, HttpStatus.OK);
+    }
+    @CrossOrigin(origins = "http://localhost:63342")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/izloguj")
+    public ResponseEntity<?> izlogovati(){
+        Korisnik k = this.korisnikService.findOneByUlogovan();
+        if(k!=null){
+            k.setUlogovan(false);
+            this.korisnikService.createKorisnik(k);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

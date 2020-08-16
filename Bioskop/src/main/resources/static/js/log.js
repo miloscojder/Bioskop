@@ -1,6 +1,16 @@
 $(document).ready(function () {    // Čeka se trenutak kada je DOM(Document Object Model) učitan da bi JS mogao sa njim da manipuliše.
     // ajax poziv
-
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/korisnik/izloguj",
+        contentType: "application/json",
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (response) {
+            console.log(response);
+        }
+    });
 });
 $(document).on('click','#loguj',function () {
 
@@ -14,6 +24,7 @@ $(document).on('click','#loguj',function () {
         success: function(response){
             alert('Uspesno logovanje!!!');
             if(response.uloga === 'ADMIN')  window.location="admin.html";
+            else if(response.uloga === 'MENADZER')  window.location="menpocetna.html";
             else window.location="pocetna.html";
         },
         error: function (response) {

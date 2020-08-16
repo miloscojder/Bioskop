@@ -64,6 +64,12 @@ public class BioskopKontroler {
         return new ResponseEntity<>(b, HttpStatus.OK);
 
     }
+    @CrossOrigin(origins = "http://localhost:63342")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/mojiBioskopi")
+    public ResponseEntity<?> mojiBioskopi(){
+        Korisnik k = this.korisnikService.findOneByUlogovan();
+        return new ResponseEntity<>(this.bioskopService.findAllByMenadzerid(k.getId()),HttpStatus.OK);
+    }
 
 
 }

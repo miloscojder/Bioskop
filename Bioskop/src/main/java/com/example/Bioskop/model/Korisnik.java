@@ -32,6 +32,7 @@ public class Korisnik {
     @Enumerated(EnumType.STRING)
     private UlogaKorisnika uloga;
     private boolean aktivan;
+    private boolean ulogovan;
 
 
     @OneToMany(mappedBy = "menadzer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

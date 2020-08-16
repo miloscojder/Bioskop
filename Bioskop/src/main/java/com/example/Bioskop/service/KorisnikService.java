@@ -20,5 +20,6 @@ public class KorisnikService {
     }
     public List<Korisnik> findAllByUloga(UlogaKorisnika uloga){ return this.korisnikRepository.findAllByUloga(uloga); }
     public void removeKorisnik(Long id){ this.korisnikRepository.deleteKorisnik(id);}
+    public Korisnik findOneByUlogovan(){ return this.korisnikRepository.findOneByUlogovan(true);}
 
 }

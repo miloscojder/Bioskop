@@ -1,6 +1,6 @@
-insert into KORISNIK(username, lozinka, ime, prezime, telefon, email, datumrodjenja, uloga, aktivan) values ('Aca', '123', 'Aleksandar', 'Aleksic', '06312345', 'aca@mail.com', '1999-05-01', 'ADMIN', true)
-insert into KORISNIK(username, lozinka, ime, prezime, telefon, email, datumrodjenja, uloga, aktivan) values ('Jovo', '321', 'Jovan', 'Jovanovic', '063543221', 'jovo@mail.com', '1997-05-01', 'MENADZER', true)
-insert into KORISNIK(username, lozinka, ime, prezime, telefon, email, datumrodjenja, uloga, aktivan) values ('Miki', '555', 'Milos', 'Milosic', '0635555', 'miki@mail.com', '1996-05-01', 'GLEDAOC', true)
+insert into KORISNIK(username, lozinka, ime, prezime, telefon, email, datumrodjenja, uloga, aktivan, ulogovan) values ('Aca', '123', 'Aleksandar', 'Aleksic', '06312345', 'aca@mail.com', '1999-05-01', 'ADMIN', true,false)
+insert into KORISNIK(username, lozinka, ime, prezime, telefon, email, datumrodjenja, uloga, aktivan, ulogovan) values ('Jovo', '321', 'Jovan', 'Jovanovic', '063543221', 'jovo@mail.com', '1997-05-01', 'MENADZER', true,false)
+insert into KORISNIK(username, lozinka, ime, prezime, telefon, email, datumrodjenja, uloga, aktivan, ulogovan) values ('Miki', '555', 'Milos', 'Milosic', '0635555', 'miki@mail.com', '1996-05-01', 'GLEDAOC', true,false)
 
 insert into BIOSKOP(naziv, adresa, brcentrale, email, menadzer_id) values ('Arena Cineplex', 'Bulevar Mihajla Pupina', '021555333', 'arena@mail.com', 2)
 insert into BIOSKOP(naziv, adresa, brcentrale, email, menadzer_id) values ('Cinestar', 'Sentandrejski put', '021333555', 'big@mail.com', 2)

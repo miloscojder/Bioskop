@@ -15,6 +15,7 @@ public interface KorisnikRepository extends JpaRepository<Korisnik,Long> {
 
     Korisnik findOneByUsername(String username);
     List<Korisnik> findAllByUloga(UlogaKorisnika uloga);
+    Korisnik findOneByUlogovan(boolean ulogovan);
 
     @Modifying
     @Transactional
