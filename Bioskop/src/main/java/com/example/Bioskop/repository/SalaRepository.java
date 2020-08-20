@@ -10,10 +10,12 @@ import javax.transaction.Transactional;
 
 public interface SalaRepository extends JpaRepository<Sala, Long> {
     Sala findOneById(Long id);
+    Sala findOneByOznakasale(String os);
 
     @Modifying
     @Transactional
     @Query(nativeQuery = true, value = "delete from sala b where b.id=:id")
     void deleteSala(@Param("id") Long id);
+
 
 }

@@ -19,6 +19,7 @@ public class FilmService {
     public  List<Film> findAllOrderByTrajanjeDesc(){return this.filmRepository.findAllByOrderByTrajanjeDesc(); }
     public  List<Film> findAllOrderByOcenaAsc(){return this.filmRepository.findAllByOrderByOcenaAsc(); }
     public  List<Film> findAllOrderByOcenaDesc(){return this.filmRepository.findAllByOrderByOcenaDesc(); }
+    public Film findOneByNaziv(String naziv){return this.filmRepository.findOneByNaziv(naziv);}
 
 
 }

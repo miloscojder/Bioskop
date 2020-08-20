@@ -32,4 +32,5 @@ public class SalaService {
     public void saveSala(Sala s){this.salaRepository.save(s);}
     public void deleteSala(Long id){this.salaRepository.deleteSala(id);}
     public void saveBioskopSala(Bioskop_sala bs){this.bioskopSalaRepository.save(bs);}
+    public Sala findOneByOznakasale(String os){return this.salaRepository.findOneByOznakasale(os);}
 }
