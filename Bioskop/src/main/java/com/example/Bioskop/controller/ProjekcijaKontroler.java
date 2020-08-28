@@ -79,10 +79,10 @@ public class ProjekcijaKontroler {
 
         Sala s = this.salaService.findOneByOznakasale(dto.getOznakaSale());
         List<Projekcija> projekcijaList = this.projekcijaService.findAllBySalaId(s.getId());
-        System.out.println("DATUM JEEEEEEE: "+dto.getDatum());
+        //System.out.println("DATUM JEEEEEEE: "+dto.getDatum());
         for(Projekcija pr : projekcijaList){
             if(pr.getVremeprojekcije().compareTo(dto.getDatum()) == 0){
-                System.out.println("NASAO IH JEEEEEE");
+               // System.out.println("NASAO IH JEEEEEE");
                 return new ResponseEntity<>("Zauzet datum", HttpStatus.BAD_REQUEST);
             }
         }
@@ -92,5 +92,16 @@ public class ProjekcijaKontroler {
         this.projekcijaService.save(p);
         return new ResponseEntity<>( HttpStatus.OK);
 
+    }
+    @CrossOrigin(origins = "http://localhost:63342")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/ucitajProjekcijeFilma/{id}")
+    public ResponseEntity<?> ucitajProjekcijeFilma(@PathVariable("id") String id){
+        List<ProjekcijaDTO> dto = new ArrayList<ProjekcijaDTO>();
+        List<Projekcija> projekcijaList = this.projekcijaService.findAllByFilmId(Long.parseLong(id));
+        for(Projekcija p : projekcijaList){
+            ProjekcijaDTO projekcija = ProjekcijaDTO.builder().cena(p.getCena()).datum(p.getVremeprojekcije()).nazivFilma(p.getFilmmm().getNaziv()).oznakaSale(p.getSalaa().getOznakasale()).build();
+            dto.add(projekcija);
+        }
+        return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 }

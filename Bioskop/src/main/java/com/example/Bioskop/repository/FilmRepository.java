@@ -14,4 +14,5 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
     List<Film> findAllByOrderByOcenaAsc();
     List<Film> findAllByOrderByOcenaDesc();
     Film findOneByNaziv(String naziv);
+
 }

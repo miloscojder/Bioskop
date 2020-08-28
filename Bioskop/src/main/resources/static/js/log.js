@@ -25,7 +25,7 @@ $(document).on('click','#loguj',function () {
             alert('Uspesno logovanje!!!');
             if(response.uloga === 'ADMIN')  window.location="admin.html";
             else if(response.uloga === 'MENADZER')  window.location="menpocetna.html";
-            else window.location="pocetna.html";
+            else window.location="gledpocetna.html";
         },
         error: function (response) {
             alert('Neuspesno logovanje!');

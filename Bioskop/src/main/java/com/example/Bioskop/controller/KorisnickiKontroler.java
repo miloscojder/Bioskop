@@ -72,5 +72,10 @@ public class KorisnickiKontroler {
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:63342")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/ucitaj")
+    public ResponseEntity<?> ucitaj(){
+        Korisnik k = this.korisnikService.findOneByUlogovan();
+        return new ResponseEntity<>(k, HttpStatus.OK);
+    }
 }

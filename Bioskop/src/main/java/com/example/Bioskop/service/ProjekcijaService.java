@@ -20,4 +20,5 @@ public class ProjekcijaService {
 
     public Projekcija findOneById(Long id){return this.projekcijaRepository.findOneById(id);}
     public void save(Projekcija p){this.projekcijaRepository.save(p);}
+    public List<Projekcija> findAllByFilmId(Long id){ return this.projekcijaRepository.findAllByFilmmmId(id);}
 }
