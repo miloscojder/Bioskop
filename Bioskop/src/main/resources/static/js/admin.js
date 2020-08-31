@@ -53,7 +53,7 @@ $(document).on('click', '.izmena', function () {
                 red += "<td align='center'><input type='text' id='brcentrale' value='"+ response['brcentrale']+"'></td>";
                 red += "<td align='center'><select id='men'></select></td>";
                 var izmeni = "<button class='izmenaaa' id='" + response['id'] + "'>Izmeni</button>";
-                var obrisi = "<button class='brisanje' id='" + response['id'] + "'>Ponisti</button>";
+                var obrisi = "<button class='ponisti' id='" + response['id'] + "'>Ponisti</button>";
                 red += "<td>" + izmeni + "</td>";
                 red += "<td>" + obrisi + "</td>";
 
@@ -83,7 +83,9 @@ $(document).on('click', '.izmena', function () {
         }
     });
 });
-
+$(document).on('click', '.ponisti', function () {
+    window.location.reload();
+});
 $(document).on('click', '.izmenaaa', function () {
 
     if($('#men').val()==null) alert('Obavezno je selektovati menadzera!!');

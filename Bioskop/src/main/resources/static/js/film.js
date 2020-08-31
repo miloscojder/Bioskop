@@ -77,3 +77,6 @@ $(document).on('click', '#pretraga', function () {
 
     });
 });
+$(document).on('click', '#vrati', function () {
+    window.history.back();
+});
